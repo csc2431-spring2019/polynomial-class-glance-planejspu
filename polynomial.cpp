@@ -35,12 +35,23 @@ Polynomial::Polynomial(const Polynomial& polynomial): _degree(polynomial._degree
 Polynomial::~Polynomial(){
 	// DO THIS FIRST TO PREVENT MEMORY LEAKS!
 }
-const Polynomial Polynomial::Sum(const Polynomial& rhs)const{
-	return Polynomial(0);
-}
+const Polynomial Polynomial::Sum(const Polynomial& rhs)const{ 
+	Polynomial retVal(*this); 
+	for (size_t i = 0; i < _degree +1; i++) { 
+		retVal._coefficients[i] += rhs._coefficients[i] ; 
+	} 
+	return retVal; 
+	return Polynomial(0); 		
+	} 
+
 const Polynomial Polynomial::Subtract(const Polynomial& rhs)const{
-	return Polynomial(0);
-}
+	Polynomial retVal(*this); 
+	for (size_t i = 0; i < _degree +1; i++) { 
+		retVal._coefficients[i] -= rhs._coefficients[i]; 
+	} 
+	return retVal; 
+	return Polynomial(0); 
+	} 
 const Polynomial Polynomial::Minus()const{
 	Polynomial retVal(*this);
 	for (size_t i = 0; i < _degree + 1; i++) {
@@ -49,8 +60,13 @@ const Polynomial Polynomial::Minus()const{
 	return retVal;
 }
 const Polynomial Polynomial::Multiply(const Polynomial& rhs)const{
-	return Polynomial(0);
-}
+	Polynomial retVal(*this); 
+	for (size_t i = 0; i < _degree +1; i++) { 
+		retVal._coefficients[i] *= rhs._coefficients[i]; 
+	} 
+	return retVal; 
+	return Polynomial(0); 
+} 
 const Polynomial Polynomial::Divide(const Polynomial& rhs)const{
 	return Polynomial(0);
 }
@@ -105,7 +121,7 @@ ostream& Polynomial::Write(ostream& output)const{
 	}
 	return output;
 }
-istream& Polynomial::Read(istream& input){
+istream& Polynomial::Read(istream& input){ // get degrre of input, fails quit, if it doesn't fail create a new array
 	size_t degree;
 	input >> degree;
 	if (input.fail()){

@@ -15,18 +15,33 @@ using std::stringstream;
 
 int main(int argc, char* argv[]){
 	stringstream buffer1;
+	stringstream buffer2;
+	buffer2.str(
+		"3 -3 4 0 -2.2" 
+		); 
+
 	buffer1.str(
 		"3 -1 2 0 -2.5"
 	);
-
+	
 	Polynomial p(3);
+	Polynomial z(3); 
+	
+	z.Read(buffer2); 
+	cout << z.ToString() << endl; 
+	z.Write(cout); 
+	cout << endl; 
+
 	p.Read(buffer1);
 	cout << p.ToString() << endl;
 	p.Write(cout);
 	cout << endl;
 
 	cout << endl << endl;
-	cout << p.Minus().ToString() << endl;
+//	cout << p.Minus().ToString() << endl; 
+//	cout << p.Sum(z).ToString() << endl; 
+//	cout << p.Subtract(z).ToString() << endl; 
+	cout << p.Multiply(z).ToString() << endl; 
 
 
 	return 0;
