@@ -68,6 +68,11 @@ const Polynomial Polynomial::Multiply(const Polynomial& rhs)const{
 	return Polynomial(0); 
 } 
 const Polynomial Polynomial::Divide(const Polynomial& rhs)const{
+	Polynomial retVal(*this); 
+	for (size_t i = 0; i < _degree +1; i++) { 
+		retVal._coefficients[i] /= rhs._coefficients[i]; 
+	} 
+	return retVal; 
 	return Polynomial(0);
 }
 const Polynomial Polynomial::Derive()const{

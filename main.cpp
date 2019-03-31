@@ -41,7 +41,8 @@ int main(int argc, char* argv[]){
 //	cout << p.Minus().ToString() << endl; 
 //	cout << p.Sum(z).ToString() << endl; 
 //	cout << p.Subtract(z).ToString() << endl; 
-	cout << p.Multiply(z).ToString() << endl; 
+//	cout << p.Multiply(z).ToString() << endl; 
+	cout << p.Divide(z).ToString() << endl; 
 
 
 	return 0;
