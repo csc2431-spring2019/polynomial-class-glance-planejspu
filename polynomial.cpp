@@ -76,9 +76,19 @@ const Polynomial Polynomial::Divide(const Polynomial& rhs)const{
 	return Polynomial(0);
 }
 const Polynomial Polynomial::Derive()const{
+	class NewPoly: public Polynomial{
+	public: 
+	private: 
+	}; 
 	return Polynomial(0);
 }
 float Polynomial::Evaluate(float x)const{
+	Polynomial retVal(*this); 
+	 for (size_t i = 0; i < _degree +1; i++) 
+		{ 
+			; 
+		} 
+		 
 	return FLT_MAX;
 }
 float Polynomial::Integrate(float start, float end)const{
