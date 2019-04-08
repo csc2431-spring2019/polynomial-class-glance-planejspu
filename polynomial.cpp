@@ -76,10 +76,8 @@ const Polynomial Polynomial::Divide(const Polynomial& rhs)const{
 	return Polynomial(0);
 }
 const Polynomial Polynomial::Derive()const{
-	class NewPoly: public Polynomial{
-	public: 
-	private: 
-	}; 
+	Polynomial newPoly(*this);  
+	std::cout << newPoly.ToString(); 
 	return Polynomial(0);
 }
 float Polynomial::Evaluate(float x)const{
